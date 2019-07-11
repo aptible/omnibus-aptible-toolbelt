@@ -36,6 +36,7 @@ dependency 'ssh'
 
 override :ruby,     version: '2.3.1'
 override :rubygems, version: '2.4.8'
+override :bundler, version: '1.17.3'
 
 # Version manifest file
 dependency 'version-manifest'
