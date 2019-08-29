@@ -68,7 +68,7 @@ package :msi do
   # (and we can't use `1` because Omnibus wants `true` or `false`). So,
   # aliasing `true` as `t` it is.
   t = true
-  signing_identity '66594CDB20C947A81824533ED54060F8FFC30322', machine_store: t
+  signing_identity '‎c1d2d31515fc767767c32c71b655dffd7bfa45db', machine_store: t
 
   # Use WixUtilExtension to support WixBroadcastEnvironmentChange and notify
   # the system that we're updating an environment variable (the PATH).
