@@ -1,8 +1,11 @@
 name 'u2f'
 
 unless windows?
-  dependency 'gengetopt'
+  dependency 'autoconf'
+  dependency 'automake'
+  dependency 'libtool'
   dependency 'help2man'
+  dependency 'gengetopt'
 
   default_version '1.1.10'
 
@@ -17,7 +20,8 @@ unless windows?
   build do
     env = with_standard_compiler_flags(with_embedded_path)
 
-    command './configure --disable-gtk-doc', env: env
-    make 'install', env: env
+    command "./autogen", env: env
+    command "./configure --prefix '#{install_dir}/embedded'", env: env
+    make 'check install', env: env
   end
 end
