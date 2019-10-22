@@ -1,10 +1,13 @@
 name 'u2f'
 
 unless windows?
+  dependency 'pkg-config'
   dependency 'autoconf'
   dependency 'automake'
   dependency 'libtool'
   dependency 'help2man'
+  dependency 'json-c'
+  dependency 'hidapi'
   dependency 'gengetopt'
 
   default_version '1.1.10'
