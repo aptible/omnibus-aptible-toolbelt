@@ -37,6 +37,10 @@ bundle install
 bundle exec omnibus build aptible-toolbelt
 ```
 
+To build on macOS, you'll need to remove the `signing_identity` from 
+`aptible-toolbelt.rb` from the `:pkg` package or add the production signing
+certificate, `.cer`, to your keychain (i.e. open with Keychain Access).
+
 ### Foreign build via Docker ###
 
 Use:

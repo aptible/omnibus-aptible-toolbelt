@@ -19,6 +19,8 @@ build_iteration 1
 # Creates required build directories
 dependency 'preparation'
 
+runtime_dependency 'u2f-host' if debian? || ubuntu? || centos?
+
 # https://github.com/chef/omnibus-software/issues/695
 override :zlib, source: {
   url: 'http://pilotfiber.dl.sourceforge.net/project/libpng/zlib/1.2.8/zlib-1.2.8.tar.gz'
