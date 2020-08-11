@@ -19,7 +19,11 @@ build_iteration 1
 # Creates required build directories
 dependency 'preparation'
 
-runtime_dependency 'u2f-host' if debian? || ubuntu? || centos?
+# The version of chef-sugar our version of omnibus uses
+# doesn't support debian_after_or_at_stretch? or centos_7?
+if debian_after_jessie? || ubuntu_after_or_at_xenial?
+  runtime_dependency 'u2f-host'
+end
 
 # https://github.com/chef/omnibus-software/issues/695
 override :zlib, source: {
