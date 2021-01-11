@@ -1,5 +1,5 @@
 name 'aptible-cli'
-default_version 'v0.16.9'
+default_version 'v0.17.0'
 
 license 'MIT'
 license_file 'LICENSE.md'
