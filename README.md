@@ -41,6 +41,31 @@ To build on macOS locally, you'll need to remove the `signing_identity` from
 `aptible-toolbelt.rb` from the `:pkg` package or add the production signing
 certificate, `.cer`, to your keychain (i.e. open with Keychain Access).
 
+### Updating MacOS certificate ###
+
+First, you'll need to generate a new "Developer ID Installer" certificate via
+the [Apple Developer Program site](https://developer.apple.com/account/resources/certificates/list).
+
+To do this using a PKCS12 key, you can run (e.g.):
+
+```
+openssl req -new -keyform pkcs12 -key key.p12 -out cert.csr
+```
+
+Once you have a signing certificate from Apple, you'll need to encrypt the key
+and certificate so that they can be accessed in Travis builds:
+
+```
+# Copy cert.cer and key.p12 into signing/ folder
+cd signing/
+tar cf secrets.tar cert.cer key.p12
+travis encrypt-file --com -R aptible/omnibus-aptible-toolbelt secrets.tar
+```
+
+This final command will print new Travis secure ENV variables which you'll
+need to copy and paste into buildscripts/travis-pre-build.sh, overwriting the
+old values.
+
 ### Foreign build via Docker ###
 
 Use:
