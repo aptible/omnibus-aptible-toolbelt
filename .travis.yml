@@ -5,7 +5,7 @@ matrix:
   include:
     - os: osx
       osx_image: xcode13.2
-      rvm: 2.6.9
+      rvm: 2.6
       env:
         - BUILD_ENGINE=native
     - os: linux
