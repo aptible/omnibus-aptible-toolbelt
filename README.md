@@ -3,7 +3,7 @@ Aptible Toolbelt
 
 [![Build Status](https://travis-ci.org/aptible/omnibus-aptible-toolbelt.svg?branch=master)](https://travis-ci.org/aptible/omnibus-aptible-toolbelt)
 
-An Omnibus package for the Aptible CLI.
+An Omnibus package for the Aptible CLI
 
 
 Why use the Aptible Toolbelt?
