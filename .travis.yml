@@ -1,8 +1,6 @@
 sudo: true
 language: ruby
 install: true
-vm:
-  size: x-large
 matrix:
   include:
     - os: osx
