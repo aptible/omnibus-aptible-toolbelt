@@ -26,7 +26,7 @@ build do
   # NOTE: The gem path has to line up with the Ruby version. It'd be nicer if we
   # could automatically get that right. However, in CI we try to execute the
   # CLI, so if we upgrade Ruby and get the path wrong, it'll blow up?
-  gem_path = [install_dir, 'embedded', 'lib', 'ruby', 'gems', '2.6.0']
+  gem_path = [install_dir, 'embedded', 'lib', 'ruby', 'gems', '2.3.0']
 
   if windows?
     bindir = windows_escaped_path(install_dir, 'embedded', 'bin')
