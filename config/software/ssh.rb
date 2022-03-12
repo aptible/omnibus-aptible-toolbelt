@@ -41,7 +41,7 @@ else
 end
 
 build do
-  unless windows?
+  unless windows? || mac_os_x?
     env = with_standard_compiler_flags(with_embedded_path)
     configure " --prefix=#{install_dir}/embedded", env: env
   end
