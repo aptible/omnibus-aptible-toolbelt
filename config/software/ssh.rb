@@ -17,6 +17,16 @@ if windows?
   end
 
   relative_path 'OpenSSH-Win64'
+elsif mac_os_x?
+  default_version '7.3p1'
+
+  source path: '/Users/ec2-user/toolbelt/ssh-files'
+
+  version '7.3p1' do
+    source sha1: 'bfade84283fcba885e2084343ab19a08c7d123a5'
+  end
+
+  relative_path "openssh-#{version}"
 else
   default_version '7.3p1'
 
@@ -40,6 +50,9 @@ build do
     if windows?
       copy "#{project_dir}/#{binary}.exe",
            "#{install_dir}/embedded/bin/#{binary}.exe"
+    elsif mac_os_x?
+      copy "#{project_dir}/#{binary}",
+           "#{install_dir}/embedded/bin/#{binary}"
     else
       make binary, env: env
       command "install -m 0755 #{binary} #{install_dir}/embedded/bin/#{binary}",

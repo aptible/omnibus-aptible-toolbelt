@@ -40,7 +40,7 @@ dependency 'aptible-cli'
 dependency 'aptible-cli-entrypoint'
 dependency 'ssh'
 
-override :ruby,     version: '2.3.1'
+override :ruby,     version: '2.6.6'
 override :rubygems, version: '2.4.8'
 override :bundler, version: '1.17.3'
 
