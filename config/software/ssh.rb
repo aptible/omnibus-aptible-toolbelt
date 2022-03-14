@@ -20,10 +20,10 @@ if windows?
 elsif mac_os_x?
   default_version '7.3p1'
 
-  source path: '/Users/ec2-user/toolbelt/ssh-files'
+  source url: 'https://aptible-ssh-binaries.s3.us-east-2.amazonaws.com/ssh.tar.gz'
 
   version '7.3p1' do
-    source sha1: 'bfade84283fcba885e2084343ab19a08c7d123a5'
+    source sha1: '25c3c135e7c7fa29aeb1e5048e00b3bc02b55cad'
   end
 
   relative_path "openssh-#{version}"
