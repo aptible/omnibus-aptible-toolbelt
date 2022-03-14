@@ -23,8 +23,8 @@ echo "Using SUDO=${SUDO}, GEM=${GEM}, BUNDLE=${BUNDLE}, RUBY=${RUBY}"
 "$GEM" env
 "$SUDO" "$GEM" env
 
-"$SUDO" "$BUNDLE" install --without development --binstubs /binstubs
-"$SUDO" env "DOCKER_TAG=${DOCKER_TAG:-native}" "$RUBY" /binstubs/omnibus build aptible-toolbelt
+"$SUDO" "$BUNDLE" install --without development --binstubs /tmp/binstubs
+"$SUDO" env "DOCKER_TAG=${DOCKER_TAG:-native}" "$RUBY" /tmp/binstubs/omnibus build aptible-toolbelt
 
 # Smoke test
 time /opt/aptible-toolbelt/bin/aptible version
