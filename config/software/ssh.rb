@@ -17,6 +17,16 @@ if windows?
   end
 
   relative_path 'OpenSSH-Win64'
+elsif mac_os_x?
+  default_version '7.3p1'
+
+  source url: 'https://aptible-ssh-binaries.s3.us-east-2.amazonaws.com/ssh.zip'
+
+  version '7.3p1' do
+    source sha1: 'f3eb9358849e7faab2939cf5f447a0203338012f'
+  end
+
+  relative_path "openssh-#{version}"
 else
   default_version '7.3p1'
 
@@ -31,7 +41,7 @@ else
 end
 
 build do
-  unless windows?
+  unless windows? || mac_os_x?
     env = with_standard_compiler_flags(with_embedded_path)
     configure " --prefix=#{install_dir}/embedded", env: env
   end
@@ -40,6 +50,9 @@ build do
     if windows?
       copy "#{project_dir}/#{binary}.exe",
            "#{install_dir}/embedded/bin/#{binary}.exe"
+    elsif mac_os_x?
+      copy "#{project_dir}/#{binary}",
+           "#{install_dir}/embedded/bin/#{binary}"
     else
       make binary, env: env
       command "install -m 0755 #{binary} #{install_dir}/embedded/bin/#{binary}",
