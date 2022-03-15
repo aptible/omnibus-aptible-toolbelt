@@ -22,7 +22,7 @@ dependency 'preparation'
 # The version of chef-sugar our version of omnibus uses
 # doesn't support debian_after_or_at_stretch? or centos_7?
 if debian_after_jessie? || ubuntu_after_or_at_xenial?
-  runtime_dependency 'u2f-host'
+  runtime_dependency 'fido2-tools'
 end
 
 # https://github.com/chef/omnibus-software/issues/695
