@@ -1,5 +1,5 @@
 GIT
-  remote: git://github.com/opscode/omnibus-software.git
+  remote: https://github.com/opscode/omnibus-software
   revision: 32196fe31fa62ebb11960626ac412a5eff9138ec
   specs:
     omnibus-software (4.0.0)
