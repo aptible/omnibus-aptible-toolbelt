@@ -6,7 +6,7 @@ matrix:
     - os: linux
       env:
         - BUILD_ENGINE=docker
-        - DOCKER_TAG=ubuntu-2004
+        - DOCKER_TAG=ubuntu-1604
       services:
         - docker
     - os: linux
