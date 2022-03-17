@@ -12,7 +12,7 @@ matrix:
     - os: linux
       env:
         - BUILD_ENGINE=docker
-        - DOCKER_TAG=debian-11
+        - DOCKER_TAG=debian-9
       services:
         - docker
     - os: linux
