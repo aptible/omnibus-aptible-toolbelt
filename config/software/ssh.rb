@@ -23,7 +23,7 @@ elsif mac_os_x?
   source url: 'https://aptible-ssh-binaries.s3.us-east-2.amazonaws.com/ssh.zip'
 
   version '7.3p1' do
-    source sha1: 'f3eb9358849e7faab2939cf5f447a0203338012f'
+    source sha1: '335a3a646db85d9c4ff301fb98c7c2efe94ff5c7'
   end
 
   relative_path "openssh-#{version}"
