@@ -3,6 +3,9 @@ set -o errexit
 set -o nounset
 set -o xtrace
 
+export rvmsudo_secure_path=1
+export BUNDLE_GEMFILE="$(pwd)/Gemfile"
+
 # Travis uses rvm, which toys with environment variables enough that it's hard
 # to use properly with sudo. So, if rvmsudo is in use, we'll use rvmsudo rather
 # than regular sudo.
