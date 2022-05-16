@@ -15,6 +15,29 @@ Why use the Aptible Toolbelt?
   relies on (e.g. `pg_dump`). You might need to install those manually
   otherwise.
 
+Where can I download the Aptible Toolbelt?
+------------------------------------------
+
+The download links can be found [here in our documentation](https://deploy-docs.aptible.com/docs/cli). 
+
+These links are versioned semantically, but one can also download the __latest__ version with the following link: 
+
+```
+# versioned link
+https://omnibus-aptible-toolbelt.s3.amazonaws.com/aptible/omnibus-aptible-toolbelt/{{TRAVIS_BRANCH}}/all/{{CLI_BUILD_NUMBER}}/pkg/aptible-toolbelt_{{CLI_VERSION}}%2B{{CLI_TIMESTAMP}}~{{OS_TAG}}_{{CPU_ARCHITECTURE}}.{DISTRO_PACKAGE_EXTENSION}}
+
+
+# example versioned link
+https://omnibus-aptible-toolbelt.s3.amazonaws.com/aptible/omnibus-aptible-toolbelt/all/master/340/pkg/aptible-toolbelt_0.19.3%2B20220317192554~debian.9.13-1_amd64.deb
+
+
+# latest link
+https://omnibus-aptible-toolbelt.s3.amazonaws.com/aptible/omnibus-aptible-toolbelt/latest/aptible-toolbelt-latest_{{CPU_ARCHITECTURE}}.{{DISTRO_PACKAGE_EXTENSION}}
+
+# example deb link
+https://omnibus-aptible-toolbelt.s3.amazonaws.com/aptible/omnibus-aptible-toolbelt/latest/aptible-toolbelt-latest_amd64.deb
+```
+
 Developer Notes
 ---------------
 

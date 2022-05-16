@@ -7,18 +7,21 @@ matrix:
       env:
         - BUILD_ENGINE=docker
         - DOCKER_TAG=ubuntu-1604
+        - PKG_FILE_EXT=.deb
       services:
         - docker
     - os: linux
       env:
         - BUILD_ENGINE=docker
         - DOCKER_TAG=debian-9
+        - PKG_FILE_EXT=.deb
       services:
         - docker
     - os: linux
       env:
         - BUILD_ENGINE=docker
         - DOCKER_TAG=centos-7
+        - PKG_FILE_EXT=.rpm
       services:
         - docker
 before_install:
@@ -26,10 +29,18 @@ before_install:
 script:
   - rm -f pkg/*
   - "buildscripts/${BUILD_ENGINE}.sh"
-  - mkdir -p "deploy/${TRAVIS_REPO_SLUG}/${TRAVIS_BRANCH}/${TRAVIS_BUILD_NUMBER}/"
+  # create directories in preparation of moving to dest and chown
+  - mkdir -p "deploy/${TRAVIS_REPO_SLUG}/all/${TRAVIS_BRANCH}/${TRAVIS_BUILD_NUMBER}/"
   - sudo chown -R "$USER" pkg
-  - mv pkg "deploy/${TRAVIS_REPO_SLUG}/${TRAVIS_BRANCH}/${TRAVIS_BUILD_NUMBER}/pkg"
-  - ls -lah "deploy/${TRAVIS_REPO_SLUG}/${TRAVIS_BRANCH}/${TRAVIS_BUILD_NUMBER}/pkg"
+  # copy build results to latest
+  - cp -R pkg "deploy/${TRAVIS_REPO_SLUG}/latest/"
+  - mv "deploy/${TRAVIS_REPO_SLUG}/latest/aptible-toolbelt*${PKG_FILE_EXT}" "deploy/${TRAVIS_REPO_SLUG}/latest/aptible-toolbelt-latest_${TRAVIS_CPU_ARCH}${PKG_FILE_EXT}"
+  - mv "deploy/${TRAVIS_REPO_SLUG}/latest/aptible-toolbelt*${PKG_FILE_EXT}.metadata.json" "deploy/${TRAVIS_REPO_SLUG}/latest/aptible-toolbelt-latest_${TRAVIS_CPU_ARCH}${PKG_FILE_EXT}.metadata.json"
+  # move pkg itself to 
+  - mv pkg "deploy/${TRAVIS_REPO_SLUG}/all/${TRAVIS_BRANCH}/${TRAVIS_BUILD_NUMBER}/pkg"
+  # list dirs to verify copy/mv commands succeeded 
+  - ls -lah "deploy/${TRAVIS_REPO_SLUG}/all/${TRAVIS_BRANCH}/${TRAVIS_BUILD_NUMBER}/pkg"
+  - ls -lah "deploy/${TRAVIS_REPO_SLUG}/latest"
 deploy:
   skip_cleanup: true
   provider: s3
