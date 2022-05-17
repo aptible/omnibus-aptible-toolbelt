@@ -33,10 +33,8 @@ script:
   - mkdir -p "deploy/${TRAVIS_REPO_SLUG}/all/${TRAVIS_BRANCH}/${TRAVIS_BUILD_NUMBER}/"
   - sudo chown -R "$USER" pkg
   # copy build results to latest
-  - cp -R pkg "deploy/${TRAVIS_REPO_SLUG}/latest/"
-  - mv "deploy/${TRAVIS_REPO_SLUG}/latest/aptible-toolbelt*${PKG_FILE_EXT}" "deploy/${TRAVIS_REPO_SLUG}/latest/aptible-toolbelt-latest_${TRAVIS_CPU_ARCH}${PKG_FILE_EXT}"
-  - mv "deploy/${TRAVIS_REPO_SLUG}/latest/aptible-toolbelt*${PKG_FILE_EXT}.metadata.json" "deploy/${TRAVIS_REPO_SLUG}/latest/aptible-toolbelt-latest_${TRAVIS_CPU_ARCH}${PKG_FILE_EXT}.metadata.json"
-  # move pkg itself to 
+  - "buildscripts/set-latest.sh"
+  # move pkg itself to destination slug path
   - mv pkg "deploy/${TRAVIS_REPO_SLUG}/all/${TRAVIS_BRANCH}/${TRAVIS_BUILD_NUMBER}/pkg"
   # list dirs to verify copy/mv commands succeeded 
   - ls -lah "deploy/${TRAVIS_REPO_SLUG}/all/${TRAVIS_BRANCH}/${TRAVIS_BUILD_NUMBER}/pkg"
