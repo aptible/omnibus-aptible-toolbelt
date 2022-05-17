@@ -24,4 +24,4 @@ rename_file_copy_to_latest() {
 export -f rename_file_copy_to_latest
 
 cp -R pkg "deploy/${TRAVIS_REPO_SLUG}/latest/"
-find "deploy/${TRAVIS_REPO_SLUG}/latest" -name "aptible-toolbelt*" | xargs bash -c 'for arg; do rename_file_copy_to_latest "$arg"; done'
+find "deploy/${TRAVIS_REPO_SLUG}/latest" -name "aptible-toolbelt*" | xargs -I {} bash -c 'rename_file_copy_to_latest "$@"'
