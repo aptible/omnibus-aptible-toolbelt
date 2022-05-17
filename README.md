@@ -32,10 +32,10 @@ https://omnibus-aptible-toolbelt.s3.amazonaws.com/aptible/omnibus-aptible-toolbe
 
 
 # latest link
-https://omnibus-aptible-toolbelt.s3.amazonaws.com/aptible/omnibus-aptible-toolbelt/latest/aptible-toolbelt-latest_{{OS_TAG}}_{{CPU_ARCHITECTURE}}.{{DISTRO_PACKAGE_EXTENSION}}
+https://omnibus-aptible-toolbelt.s3.amazonaws.com/aptible/omnibus-aptible-toolbelt/latest/aptible-toolbelt_latest_{{OS_TAG}}_{{CPU_ARCHITECTURE}}.{{DISTRO_PACKAGE_EXTENSION}}
 
 # example deb link
-https://omnibus-aptible-toolbelt.s3.amazonaws.com/aptible/omnibus-aptible-toolbelt/latest/aptible-toolbelt-latest_debian.9.13-1_amd64.deb
+https://omnibus-aptible-toolbelt.s3.amazonaws.com/aptible/omnibus-aptible-toolbelt/latest/aptible-toolbelt_latest_debian.9.13-1_amd64.deb
 ```
 
 Developer Notes

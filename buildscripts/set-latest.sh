@@ -13,10 +13,10 @@ rename_file_copy_to_latest() {
     # drops all the stuff that's usually caught by the wildcard in the find function "*" and replaces with `latest``
     if [[ "$1" == *".metadata.json" ]]; then
         # moves metadata file with latest suffix
-        mv "$1" "deploy/${TRAVIS_REPO_SLUG}/latest/aptible-toolbelt-latest_${DOCKER_TAG}_${TRAVIS_CPU_ARCH}${PKG_FILE_EXT}.metadata.json"
+        mv "$1" "deploy/${TRAVIS_REPO_SLUG}/latest/aptible-toolbelt_latest_${DOCKER_TAG}_${TRAVIS_CPU_ARCH}${PKG_FILE_EXT}.metadata.json"
     elif [[ "$1" == *"${PKG_FILE_EXT}" ]]; then
         # moves versioned file (rpm/deb) with latest suffix
-        mv "$1" "deploy/${TRAVIS_REPO_SLUG}/latest/aptible-toolbelt-latest_${DOCKER_TAG}_${TRAVIS_CPU_ARCH}${PKG_FILE_EXT}"
+        mv "$1" "deploy/${TRAVIS_REPO_SLUG}/latest/aptible-toolbelt_latest_${DOCKER_TAG}_${TRAVIS_CPU_ARCH}${PKG_FILE_EXT}"
     else
         echo "Found file that will not be renamed: $1"
     fi
