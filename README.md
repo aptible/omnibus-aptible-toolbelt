@@ -24,11 +24,11 @@ These links are versioned semantically, but one can also download the __latest__
 
 ```
 # versioned link
-https://omnibus-aptible-toolbelt.s3.amazonaws.com/aptible/omnibus-aptible-toolbelt/{{TRAVIS_BRANCH}}/all/{{CLI_BUILD_NUMBER}}/pkg/aptible-toolbelt_{{CLI_VERSION}}%2B{{CLI_TIMESTAMP}}~{{OS_TAG}}_{{CPU_ARCHITECTURE}}.{DISTRO_PACKAGE_EXTENSION}}
+https://omnibus-aptible-toolbelt.s3.amazonaws.com/aptible/omnibus-aptible-toolbelt/{{TRAVIS_BRANCH}}/{{CLI_BUILD_NUMBER}}/pkg/aptible-toolbelt_{{CLI_VERSION}}%2B{{CLI_TIMESTAMP}}~{{OS_TAG}}_{{CPU_ARCHITECTURE}}.{DISTRO_PACKAGE_EXTENSION}}
 
 
 # example versioned link
-https://omnibus-aptible-toolbelt.s3.amazonaws.com/aptible/omnibus-aptible-toolbelt/all/master/340/pkg/aptible-toolbelt_0.19.3%2B20220317192554~debian.9.13-1_amd64.deb
+https://omnibus-aptible-toolbelt.s3.amazonaws.com/aptible/omnibus-aptible-toolbelt/master/340/pkg/aptible-toolbelt_0.19.3%2B20220317192554~debian.9.13-1_amd64.deb
 
 
 # latest link
@@ -99,8 +99,18 @@ Use:
 DOCKER_TAG=debian-8 buildscripts/docker.sh
 ```
 
+### External Dependencies ### 
+
+Be cautious when making breaking changes to build result paths.
+
+Downstream consumers of this repository's outputs include:
+
+* [Our homebrew cask for OSX installation](https://github.com/Homebrew/homebrew-cask/blob/master/Casks/aptible.rb)
+* [Our PR generate](https://github.com/aptible/toolbelt-auto-update/blob/master/bin/toolbelt-auto-update#L64-L65), which looks for new CLI versions and opens PR's against our public docs and aptible-integration repos
+* Update our [Windows and Mac OS package instructions](https://github.com/aptible/scripts/blob/master/doc/ReleaseNewCLIVersion.md)
+
 ## Copyright and License
 
 MIT License, see [LICENSE](LICENSE.md) for details.
 
-Copyright (c) 2019 [Aptible](https://www.aptible.com) and contributors.
+Copyright (c) 2022 [Aptible](https://www.aptible.com) and contributors.

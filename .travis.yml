@@ -30,14 +30,14 @@ script:
   - rm -f pkg/*
   - "buildscripts/${BUILD_ENGINE}.sh"
   # create directories in preparation of moving to dest and chown
-  - mkdir -p "deploy/${TRAVIS_REPO_SLUG}/all/${TRAVIS_BRANCH}/${TRAVIS_BUILD_NUMBER}/"
+  - mkdir -p "deploy/${TRAVIS_REPO_SLUG}/${TRAVIS_BRANCH}/${TRAVIS_BUILD_NUMBER}/"
   - sudo chown -R "$USER" pkg
   # copy build results to latest
   - "buildscripts/set-latest.sh"
   # move pkg itself to destination slug path
-  - mv pkg "deploy/${TRAVIS_REPO_SLUG}/all/${TRAVIS_BRANCH}/${TRAVIS_BUILD_NUMBER}/pkg"
+  - mv pkg "deploy/${TRAVIS_REPO_SLUG}/${TRAVIS_BRANCH}/${TRAVIS_BUILD_NUMBER}/pkg"
   # list dirs to verify copy/mv commands succeeded 
-  - ls -lah "deploy/${TRAVIS_REPO_SLUG}/all/${TRAVIS_BRANCH}/${TRAVIS_BUILD_NUMBER}/pkg"
+  - ls -lah "deploy/${TRAVIS_REPO_SLUG}/${TRAVIS_BRANCH}/${TRAVIS_BUILD_NUMBER}/pkg"
   - ls -lah "deploy/${TRAVIS_REPO_SLUG}/latest"
 deploy:
   skip_cleanup: true
