@@ -113,4 +113,4 @@ Downstream consumers of this repository's outputs include:
 
 MIT License, see [LICENSE](LICENSE.md) for details.
 
-Copyright (c) 2022 [Aptible](https://www.aptible.com) and contributors.
+Copyright (c) 2019 [Aptible](https://www.aptible.com) and contributors.
