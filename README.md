@@ -15,6 +15,29 @@ Why use the Aptible Toolbelt?
   relies on (e.g. `pg_dump`). You might need to install those manually
   otherwise.
 
+Where can I download the Aptible Toolbelt?
+------------------------------------------
+
+The download links can be found [here in our documentation](https://deploy-docs.aptible.com/docs/cli). 
+
+These links are versioned semantically, but one can also download the __latest__ version with the following link: 
+
+```
+# versioned link
+https://omnibus-aptible-toolbelt.s3.amazonaws.com/aptible/omnibus-aptible-toolbelt/{{TRAVIS_BRANCH}}/{{CLI_BUILD_NUMBER}}/pkg/aptible-toolbelt_{{CLI_VERSION}}%2B{{CLI_TIMESTAMP}}~{{OS_TAG}}_{{CPU_ARCHITECTURE}}.{DISTRO_PACKAGE_EXTENSION}}
+
+
+# example versioned link
+https://omnibus-aptible-toolbelt.s3.amazonaws.com/aptible/omnibus-aptible-toolbelt/master/340/pkg/aptible-toolbelt_0.19.3%2B20220317192554~debian.9.13-1_amd64.deb
+
+
+# latest link
+https://omnibus-aptible-toolbelt.s3.amazonaws.com/aptible/omnibus-aptible-toolbelt/latest/aptible-toolbelt_latest_{{OS_TAG}}_{{CPU_ARCHITECTURE}}.{{DISTRO_PACKAGE_EXTENSION}}
+
+# example deb link
+https://omnibus-aptible-toolbelt.s3.amazonaws.com/aptible/omnibus-aptible-toolbelt/latest/aptible-toolbelt_latest_debian.9.13-1_amd64.deb
+```
+
 Developer Notes
 ---------------
 
@@ -75,6 +98,16 @@ Use:
 # https://github.com/aptible/aptible-omnibus-builder for available builders.
 DOCKER_TAG=debian-8 buildscripts/docker.sh
 ```
+
+### External Dependencies ### 
+
+Be cautious when making breaking changes to build result paths.
+
+Downstream consumers of this repository's outputs include:
+
+* [Our homebrew cask for OSX installation](https://github.com/Homebrew/homebrew-cask/blob/master/Casks/aptible.rb)
+* [Our PR generate](https://github.com/aptible/toolbelt-auto-update/blob/master/bin/toolbelt-auto-update#L64-L65), which looks for new CLI versions and opens PR's against our public docs and aptible-integration repos
+* Update our [Windows and Mac OS package instructions](https://github.com/aptible/scripts/blob/master/doc/ReleaseNewCLIVersion.md)
 
 ## Copyright and License
 
