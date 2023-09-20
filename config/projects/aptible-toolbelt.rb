@@ -61,15 +61,8 @@ package :msi do
     AptibleToolbeltPathGuid: '4126FFD9-C230-437B-A102-4B9F29156137'
   )
 
-  # The signing_identity is the SHA1 fingerprint of the cert we use. But, the
-  # more interesting part here is this `t` variable. For some reason, the Ruby
-  # version we use in our OSX builder doesn't want to allow breaking this
-  # expression across multiple lines and wrapping the arguments with ().
-  # Unfortunately, our Rubocop config disallows most other things we could try
-  # (and we can't use `1` because Omnibus wants `true` or `false`). So,
-  # aliasing `true` as `t` it is.
-  t = true
-  signing_identity 'AAC1E2D3693EE361EB0AC2193157DE8F00342613', machine_store: t
+  # The signing_identity is the SHA1 fingerprint of the cert we use.
+  signing_identity 'E3B076EAF4FAF96DDCA2FD48083B5A39FCB201B2', machine_store: true, algorithm: 'SHA256'
 
   # Use WixUtilExtension to support WixBroadcastEnvironmentChange and notify
   # the system that we're updating an environment variable (the PATH).
