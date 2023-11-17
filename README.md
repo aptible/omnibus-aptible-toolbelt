@@ -105,9 +105,10 @@ Be cautious when making breaking changes to build result paths.
 
 Downstream consumers of this repository's outputs include:
 
-* [Our homebrew cask for OSX installation](https://github.com/Homebrew/homebrew-cask/blob/master/Casks/aptible.rb)
-* [Our PR generate](https://github.com/aptible/toolbelt-auto-update/blob/master/bin/toolbelt-auto-update#L64-L65), which looks for new CLI versions and opens PR's against our public docs and aptible-integration repos
-* Update our [Windows and Mac OS package instructions](https://github.com/aptible/scripts/blob/master/doc/ReleaseNewCLIVersion.md)
+* [Our homebrew cask for OSX installation](https://github.com/Homebrew/homebrew-cask/blob/master/Casks/a/aptible.rb)
+* [Our PR generator](https://github.com/aptible/toolbelt-auto-update/blob/0ff05a01b1bd8e08c1ddbfbd2ece9e0cc0fd30e7/bin/toolbelt-auto-update#L64-L65), which looks for new CLI versions and opens PR's against our public docs and aptible-integration repos
+
+In addition, be sure to consider whether you need to update our [Windows](doc/WINDOWS.md) and [Mac OS](doc/OSX.md) package instructions
 
 ## Copyright and License
 
